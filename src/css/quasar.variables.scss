@@ -25,3 +25,19 @@ $positive     : #21BA45;
 $negative     : #C10015;
 $info         : #31CCEC;
 $warning      : #F2C037;
+
+.bg-leteu {
+  background-color: $leteu;
+}
+
+.text-leteu {
+  color: $leteu;
+}
+
+.bg-leteu-under {
+  background-color: $leteu-under;
+}
+
+.text-leteu-under {
+  color: $leteu-under;
+}
