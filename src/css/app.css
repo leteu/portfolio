@@ -60,6 +60,9 @@
   .top-minus-$(i)pct { top: -$(i)%; }
   .bottom-minus-$(i)pct { bottom: -$(i)%; }
   .right-minus-$(i)pct { right: -$(i)%; }
+
+  .bg-leteu-$(i) { background: hsl(171, 65%, calc(63%*$(i)/100)) }
+  .bg-leteu-under-$(i) { background: hsl(171, 37%, calc(48%*$(i)/100)) }
 }
 
 @for $i from 0 to 2000 {
