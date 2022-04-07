@@ -9,7 +9,9 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
 
+const path = require('path');
 const { configure } = require('quasar/wrappers');
+const { plugins } = require('./postcss.config');
 
 
 module.exports = configure(function (/* ctx */) {
@@ -79,7 +81,10 @@ module.exports = configure(function (/* ctx */) {
       
       // vitePlugins: [
       //   [ 'package-name', { ..options.. } ]
-      // ]
+      // ],
+      alias: {
+        css: path.join(__dirname, './src/css')
+      }
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
