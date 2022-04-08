@@ -8,6 +8,8 @@ import {
 import { StateInterface } from '../store';
 
 import routes from './routes';
+import PlaneLoading from 'src/pages/PlaneLoading.vue';
+import { Dialog } from 'quasar';
 
 /*
  * If not building with SSR mode, you can
@@ -33,5 +35,15 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
+  Router.beforeEach((to, from, next) => {
+    const Plane = Dialog.create({
+      component: PlaneLoading
+    });
+
+    setTimeout(() => {
+      Plane.hide();
+      next();
+    }, 5 * 1000)
+  })
   return Router;
 });
