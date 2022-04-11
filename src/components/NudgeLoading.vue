@@ -17,33 +17,23 @@ export default defineComponent({
 });
 </script>
 
-<style lang="sass" scoped>
-.loading-text
+<style scoped>
+.loading-text {
   animation: bounce .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate
-  &:nth-child(1)
-    animation-delay: 1 * .05s
-  &:nth-child(2)
-    animation-delay: 2 * .05s
-  &:nth-child(3)
-    animation-delay: 3 * .05s
-  &:nth-child(4)
-    animation-delay: 4 * .05s
-  &:nth-child(5)
-    animation-delay: 5 * .05s
-  &:nth-child(6)
-    animation-delay: 6 * .05s
-  &:nth-child(7)
-    animation-delay: 7 * .05s
-  &:nth-child(8)
-    animation-delay: 8 * .05s
-  &:nth-child(9)
-    animation-delay: 9 * .05s
-  &:nth-child(10)
-    animation-delay: 10 * .05s
+}
 
-@keyframes bounce
-  0%
+@for $i from 1 to 10 {
+  .loading-text:nth-child($(i)) {
+    animation-delay: calc($(i) * .05s)
+  }
+}
+
+@keyframes bounce {
+  from {
     transform: translateY(0px)
-  100%
+  }
+  to {
     transform: translateY(-1em)
+  }
+}
 </style>
