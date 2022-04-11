@@ -3,8 +3,8 @@
     <div class="col row">
       <div class="col">
       </div>
-      <div class="col height-800px">
-        <LogoAnimation />
+      <div class="col flex justify-center items-center">
+        <LogoAnimation class="height-800px" />
       </div>
     </div>
     <div class="flex justify-center items-center q-mb-lg">

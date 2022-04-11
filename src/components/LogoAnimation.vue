@@ -19,10 +19,10 @@
 #L
   height: 100%
   position: relative
+  animation: MoveY 2s forwards
   .st0
     fill: #4da89b
     transform-origin: 0pt 262pt
-    // transform: rotate(-90deg) skew(-45deg, 70deg) scale(0.5, 0.5)
     animation: fold 2s forwards
   .st1
     fill: #62decc
@@ -34,4 +34,10 @@
   100%
     fill: #4da89b
     transform: rotate(-90deg) skew(-45deg, 70deg) scale(0.5, 0.5)
+
+@keyframes MoveY
+  from
+    transform: translateY(0)
+  to
+    transform: translateY(150px)
 </style>
