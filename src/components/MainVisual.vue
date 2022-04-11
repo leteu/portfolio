@@ -1,7 +1,10 @@
 <template>
-  <div class="full-height height-100vh column">
+  <div class="full-height height-100vh column bg-leteu-under-20">
     <div class="col row">
-      <div class="col">
+      <div class="col flex justify-start items-center text-weight-bold fs-400">
+        <Typing
+          class="q-pl-xl"
+        />
       </div>
       <div class="col flex justify-center items-center">
         <LogoAnimation class="height-800px" />
@@ -17,11 +20,13 @@
 import { defineComponent } from "vue";
 import LogoAnimation from "./LogoAnimation.vue";
 import NudgeMouse from "./NudgeMouse.vue";
+import Typing from "./Typing.vue";
 
 export default defineComponent({
   components: {
     LogoAnimation,
-    NudgeMouse
+    NudgeMouse,
+    Typing
   },
   setup() {},
 });

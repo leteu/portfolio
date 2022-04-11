@@ -36,14 +36,16 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
-    const Plane = Dialog.create({
-      component: PlaneLoading
-    });
+    // const Plane = Dialog.create({
+    //   component: PlaneLoading
+    // });
 
-    setTimeout(() => {
-      Plane.hide();
-      next();
-    }, 5 * 1000)
+    // setTimeout(() => {
+    //   Plane.hide();
+    //   next();
+    // }, 5 * 1000)
+
+    next();
   })
   return Router;
 });
