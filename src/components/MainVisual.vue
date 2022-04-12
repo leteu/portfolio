@@ -6,8 +6,8 @@
       </div>
       <div class="col flex justify-center items-center">
         <!-- <LogoAnimation class="height-800px" /> -->
-        <div class="plane full-width q-pl-xl">
-          <PlaneSvg pressKey="default" class="width-60pct q-ml-xl" />
+        <div class="plane width-60pct">
+          <PlaneSvg pressKey="default" class="width-100pct" />
         </div>
       </div>
     </div>
