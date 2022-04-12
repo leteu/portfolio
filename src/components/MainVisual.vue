@@ -1,13 +1,11 @@
 <template>
-  <div class="full-height height-100vh column bg-leteu-under-20">
+  <div class="full-height height-100vh column main-box">
     <div class="col row">
-      <div class="col flex justify-start items-center text-weight-bold fs-400">
-        <Typing
-          class="q-pl-xl"
-        />
+      <div class="col flex justify-start items-center text-weight-bold fs-400 q-pl-xl">
+        <Typing class="q-pl-xl q-ml-xl" />
       </div>
       <div class="col flex justify-center items-center">
-        <LogoAnimation class="height-800px" />
+        <!-- <LogoAnimation class="height-800px" /> -->
       </div>
     </div>
     <div class="flex justify-center items-center q-mb-lg">
@@ -26,8 +24,14 @@ export default defineComponent({
   components: {
     LogoAnimation,
     NudgeMouse,
-    Typing
+    Typing,
   },
   setup() {},
 });
 </script>
+
+<style lang="sass" scoped>
+.main-box
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))
+  background-blend-mode: darken
+</style>
