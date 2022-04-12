@@ -1,14 +1,7 @@
 <template>
-  <q-layout>
-    <div class="row">
-      <div class="width-75px bg-leteu-under text-center column justify-between">
-        <div class="logo" @click="$route.push('/')">
-          <div class="q-ma-sm logo-box">
-            <img src="~assets/logo.png" alt="" />
-          </div>
-          <span class="text-white text-weight-bold">leteu</span>
-        </div>
-
+  <q-layout class="relative-position">
+    <div class="height-100px full-width absolute-top z-index-50">
+      <div class="warp flex items-center justify-end">
         <div class="contact-me">
           <q-icon size="md" name="mdi-github" class="contact-me__github" @click="ContactMeFn('github')"></q-icon>
           <q-icon size="md" name="mdi-discord" class="contact-me__discord" @click="ContactMeFn('discord')"></q-icon>
@@ -23,18 +16,26 @@
             </svg>
           </q-icon>
         </div>
-      </div>
-      <q-page-container class="col column height-100vh">
-        <div class="col">
-          <router-view class="full-height" />
-        </div>
-        <div class="q-pa-sm text-right full-width">
-          <div class="text-grey-6">
-            Copyright 2022. leteu. All rights reserved.
+        <div class="logo" @click="$route.push('/')">
+          <div class="q-ma-sm logo-box">
+            <img src="~assets/logo.png" alt="" />
+          </div>
+          <div class="full-width text-center">
+            <span class="text-white text-weight-bold">leteu</span>
           </div>
         </div>
-      </q-page-container>
+      </div>
     </div>
+    <q-page-container class="col column">
+      <div class="col">
+        <router-view class="full-height" />
+      </div>
+      <div class="q-pa-sm text-right full-width">
+        <div class="text-grey-6">
+          Copyright 2022. leteu. All rights reserved.
+        </div>
+      </div>
+    </q-page-container>
   </q-layout>
 </template>
 
@@ -103,8 +104,9 @@ export default defineComponent({
 
 .contact-me
   display: flex
-  flex-direction: column
   align-self: center
+  justify-content: space-around
+  width: 150px
   &__github
     color: $grey-7
     &:hover
