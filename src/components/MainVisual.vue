@@ -6,6 +6,9 @@
       </div>
       <div class="col flex justify-center items-center">
         <!-- <LogoAnimation class="height-800px" /> -->
+        <div class="plane full-width q-pl-xl">
+          <PlaneSvg pressKey="default" class="width-60pct q-ml-xl" />
+        </div>
       </div>
     </div>
     <div class="flex justify-center items-center q-mb-lg">
@@ -19,12 +22,14 @@ import { defineComponent } from "vue";
 import LogoAnimation from "./LogoAnimation.vue";
 import NudgeMouse from "./NudgeMouse.vue";
 import Typing from "./Typing.vue";
+import PlaneSvg from "src/components/PlaneSvg.vue";
 
 export default defineComponent({
   components: {
     LogoAnimation,
     NudgeMouse,
     Typing,
+    PlaneSvg
   },
   setup() {},
 });
@@ -34,4 +39,7 @@ export default defineComponent({
 .main-box
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))
   background-blend-mode: darken
+
+.plane
+  transform: rotate(-20deg)
 </style>
