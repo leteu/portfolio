@@ -4,7 +4,7 @@
       Hello, I'm leteu.
     </p>
     <p>
-      web <span class="gradient-text">frontend</span> Developer.
+      Web <span class="gradient-text">frontend</span> developer.
     </p>
     <p>
       Always think about
