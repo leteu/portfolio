@@ -33,6 +33,8 @@ export default defineComponent({
 <style lang="sass" scoped>
 .typing-text
   p
+    line-height: 1.25em
+    margin-block: .25em !important
     border-right: .05em solid
     white-space: nowrap
     overflow: hidden
