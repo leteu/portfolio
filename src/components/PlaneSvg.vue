@@ -39,17 +39,21 @@ $nudge-range: 30px
 @keyframes nudge
   0%
     transform: translateY(0)
-  20%
+  10%
     transform: translateY($nudge-range)
-  30%
+  20%
     transform: translateY(0)
-  50%
+  40%
     transform: translateY($nudge-range)
   60%
     transform: translateY(0)
-  80%
+  70%
     transform: translateY($nudge-range)
+  80%
+    transform: translateY(0)
   90%
+    transform: translateY($nudge-range)
+  100%
     transform: translateY(0)
 
 @keyframes up
