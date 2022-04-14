@@ -47,7 +47,7 @@ $--dot: (
   width: 100%;
   box-shadow: 15px 15px rgba($color: #000000, $alpha: 0.5);
   &__header {
-    background: white;
+    background: $grey-4;
     width: 100%;
     font-weight: bolder;
     color: $grey-10;
