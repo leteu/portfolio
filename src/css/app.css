@@ -87,4 +87,6 @@
   .fs-$i { font-size: calc($(i)em / 100); }
 
   .z-index-$(i) { z-index: $(i); }
+
+  .border-radius-$(i)px { border-radius: $(i)px }
 }
