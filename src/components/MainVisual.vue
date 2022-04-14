@@ -1,8 +1,10 @@
 <template>
   <div class="full-height height-100vh column main-box">
     <div class="col row">
-      <div class="col flex justify-start items-center text-weight-bold fs-400 q-pl-xl">
-        <Typing class="q-pl-xl q-ml-xl" />
+      <div class="col flex justify-start items-center q-pl-xl">
+        <MacStyleWindow>
+          <Typing class="q-pl-xl q-ml-xl text-weight-bold fs-400" />-
+        </MacStyleWindow>
       </div>
       <div class="col flex justify-center items-center">
         <!-- <LogoAnimation class="height-800px" /> -->
@@ -23,13 +25,15 @@ import LogoAnimation from "./LogoAnimation.vue";
 import NudgeMouse from "./NudgeMouse.vue";
 import Typing from "./Typing.vue";
 import PlaneSvg from "src/components/PlaneSvg.vue";
+import MacStyleWindow from "src/components/MacStyleWindow.vue";
 
 export default defineComponent({
   components: {
     LogoAnimation,
     NudgeMouse,
     Typing,
-    PlaneSvg
+    PlaneSvg,
+    MacStyleWindow
   },
   setup() {},
 });
