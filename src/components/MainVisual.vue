@@ -1,16 +1,10 @@
 <template>
-  <div class="full-height height-100vh column main-box">
-    <div class="col row">
-      <div class="col flex justify-start items-center q-pl-xl">
-        <MacStyleWindow>
-          <Typing class="q-pl-xl q-ml-xl text-weight-bold fs-400" />-
-        </MacStyleWindow>
-      </div>
+  <div class="height-100vh main-box relative-position column">
+    <div class="col row z-index-50">
       <div class="col flex justify-center items-center">
-        <!-- <LogoAnimation class="height-800px" /> -->
-        <div class="plane width-60pct">
-          <PlaneSvg pressKey="default" class="width-100pct" />
-        </div>
+        <MacStyleWindow class="width-900px">
+          <Typing class="q-pl-xl q-ml-xl text-weight-bold fs-400 q-py-xl" />
+        </MacStyleWindow>
       </div>
     </div>
     <div class="flex justify-center items-center q-mb-lg">
@@ -40,10 +34,6 @@ export default defineComponent({
 </script>
 
 <style lang="sass" scoped>
-.main-box
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))
-  background-blend-mode: darken
-
 .plane
   transform: rotate(-20deg)
 </style>
