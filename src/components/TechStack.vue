@@ -15,7 +15,7 @@
           class="col-4 q-px-sm q-pb-md"
         >
           <q-card
-            class="height-100pct column"
+            class="height-100pct column border-radius-15px"
             data-aos="zoom-in"
             data-aos-easing="linear"
             data-aos-duration="500"
