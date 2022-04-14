@@ -6,11 +6,11 @@
     <p>
       Web <span class="gradient-text">frontend</span> developer.
     </p>
-    <p>
+    <p class="fs-80">
       Always think about
     </p>
-    <p>
-      <span class="gradient-text">optimize performance.</span>
+    <p class="fs-80">
+      optimize <span class="gradient-text">performance.</span>
     </p>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default defineComponent({
     border-right: .05em solid
     white-space: nowrap
     overflow: hidden
-    color: #ededed
+    color: $grey-5
     &:nth-child(1)
       width: 13.7ch
       opacity: 0
