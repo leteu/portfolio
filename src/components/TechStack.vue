@@ -1,33 +1,32 @@
 <template>
-  <div class="full-width bg-grey-2 q-pa-xl">
-    <div class="width-400px text-center q-mx-auto">
+  <div class="full-width q-pa-xl">
+    <div class="width-400px text-center q-mx-auto text-grey-5">
       <div class="section-title">Tech Stack</div>
-      <q-separator color="dark" class="q-mt-lg q-mb-xl" />
+      <q-separator color="grey-5" class="q-mt-lg q-mb-xl" />
     </div>
-    <div class="flex justify-around warp">
-      <div class="hexagon-container">
-        <template v-for="(tech, index) in techList" :key="`tech-${index}`">
-          <div
-            :class="`hexagon hexagon__${tech.name}`"
-            @mouseover="hoverHexagon(tech.name)"
-            @mouseleave="resetHover"
-          >
-            <img :src="tech.image" alt="" />
-          </div>
-        </template>
-        <div class="hexagon"></div>
-      </div>
-      <div>
-        <transition
-          appear
-          enter-active-class="animated fadeIn slide-down"
-          leave-active-class="animated fadeOut slide-down"
-        >
-          <template v-if="hoverItem === 'vuejs'">
-            <div key="vuejs">1</div>
-          </template>
-        </transition>
-      </div>
+    <div class="warp row text-grey-10 text-h6 row">
+      <template v-for="(techs, key) in techList" :key="key">
+        <div class="col q-px-sm">
+          <q-card class="height-100pct column">
+            <q-card-section>
+              {{techs.name}}
+            </q-card-section>
+            <q-separator />
+            <q-card-section class="col">
+              <div class="tech-container">
+                <template v-for="(tech, index) in techs.value" :key="`tech-${key}-${index}`">
+                  <div :class="`tech-box tech-box__${tech.name}`">
+                    <img :src="tech.image" alt="" v-if="!!tech.image" />
+                    <q-tooltip v-if="!!tech.name">
+                      {{ tech.name }}
+                    </q-tooltip>
+                  </div>
+                </template>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -55,22 +54,42 @@ export default defineComponent({
   setup() {
     const hoverItem = ref("");
 
-    const techList = [
-      { name: "vuejs", image: vuejs },
-      { name: "javascript", image: javascript },
-      { name: "typescript", image: typescript },
-      { name: "flutter", image: flutter },
-      { name: "sass", image: sass },
-      { name: "html", image: html },
-      { name: "css", image: css },
-      { name: "webpack", image: webpack },
-      { name: "vite", image: vite },
-      { name: "electron", image: electron },
-      { name: "git", image: git },
-      { name: "gitlab", image: gitlab },
-      { name: "slack", image: slack },
-      { name: "postcss", image: postcss },
-    ];
+    const techList = {
+      frontend: {
+        name: '프론트엔드',
+        value: [
+          { name: "vuejs",      image: vuejs      },
+          { name: "javascript", image: javascript },
+          { name: "typescript", image: typescript },
+          { name: "flutter",    image: flutter    },
+          { name: "electron",   image: electron   },
+        ]
+      },
+      publish: {
+        name: '퍼블리싱',
+        value: [
+          { name: "html",       image: html       },
+          { name: "css",        image: css        },
+          { name: "sass",       image: sass       },
+          { name: "postcss",    image: postcss    },
+        ]
+      },
+      devTool: {
+        name: '개발 도구',
+        value: [
+          { name: "webpack",    image: webpack    },
+          { name: "vite",       image: vite       },
+        ],
+      },
+      workplace: {
+        name: '협업 도구',
+        value: [
+          { name: "git",        image: git        },
+          { name: "gitlab",     image: gitlab     },
+          { name: "slack",      image: slack      },
+        ]
+      }
+    };
 
     function hoverHexagon(type: string) {
       hoverItem.value = type;
@@ -95,22 +114,6 @@ export default defineComponent({
   font-weight: bolder;
 }
 
-/* Hexagon dimentions */
-$--hex: (
-  hex-width: 150px,
-  hex-between: 10px,
-  hex-transition: all 0.2s ease,
-  hex-default: #8e8e8e,
-  hex-hover: #fff,
-);
-
-$--hex-other: (
-  hex-height: calc(#{map-get($--hex, hex-width)} / 1.73),
-  hex-margin: calc(#{map-get($--hex, hex-width)} / 2),
-);
-
-$--hex-border: calc(#{map-get($--hex-other, hex-margin)} / 1.73);
-
 /* Colors */
 $--colors: (
   css: #1572b6,
@@ -133,80 +136,31 @@ $--colors: (
 $--tech-list: sass, git, html, javascript, typescript, flutter, vuejs, webpack,
   vite, css, gitlab, electron, slack, postcss;
 
-.hexagon-container {
-  display: grid;
-  grid-template-columns:
-    map-get($--hex, hex-width)
-    map-get($--hex, hex-width)
-    map-get($--hex, hex-width)
-    map-get($--hex, hex-width)
-    map-get($--hex, hex-width);
-  grid-auto-rows: calc(#{map-get($--hex, hex-width)} - 28.87px / 1.5);
-  grid-gap: map-get($--hex, hex-between) map-get($--hex, hex-between);
-  padding-bottom: $--hex-border;
-}
+.tech {
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+  }
+  &-box {
+    aspect-ratio: 1/1;
+    width: calc(100% / 3 - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
 
-.hexagon {
-  align-items: center;
-  background-color: map-get($--hex, hex-default);
-  cursor: default;
-  display: flex;
-  fill: white;
-  height: map-get($--hex-other, hex-height);
-  justify-content: center;
-  margin: $--hex-border 0;
-  position: relative;
-  transition: map-get($--hex, hex-transition);
-  width: map-get($--hex, hex-width);
-  &::after,
-  &::before {
-    border-left: #{map-get($--hex-other, hex-margin)} solid transparent;
-    border-right: #{map-get($--hex-other, hex-margin)} solid transparent;
-    content: "";
-    left: 0;
-    position: absolute;
-    transition: map-get($--hex, hex-transition);
-    width: 0;
-  }
-  &::after {
-    border-top: #{$--hex-border} solid #{map-get($--hex, hex-default)};
-    top: 100%;
-    width: 0;
-  }
-  &::before {
-    border-bottom: #{$--hex-border} solid #{map-get($--hex, hex-default)};
-    bottom: 100%;
-  }
-  @for $i from 6 to 11 {
-    &:nth-child(10n + #{$i}) {
-      margin-left: calc(
-        (
-          #{map-get($--hex, hex-width)}
-          / 2 + #{map-get($--hex, hex-between)}
-          / 2
-        )
-        * -1
-      );
+    > img {
+      width: 80%;
     }
-  }
-  > img {
-    height: 75%;
-    transition: map-get($--hex, hex-transition);
-    fill: white;
-  }
-}
-
-/* Colors */
-.hexagon {
-  @each $tech in $--tech-list {
-    &__#{$tech} {
-      background-color: map-get($--colors, $tech);
-      &::after,
-      &::before {
-        border-top-color: map-get($--colors, $tech);
-        border-bottom-color: map-get($--colors, $tech);
+    /* Colors */
+    @each $tech in $--tech-list {
+      &__#{$tech} {
+        background-color: map-get($--colors, $tech);
       }
     }
   }
 }
+
 </style>
