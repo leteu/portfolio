@@ -1,21 +1,46 @@
 <template>
-  <div class="full-width q-pa-xl">
-    <div class="width-400px text-center q-mx-auto text-grey-5">
+  <div class="height-100vh full-width q-pa-xl scroll-y">
+    <div
+      class="width-400px text-center q-mx-auto text-grey-5"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+    >
       <div class="section-title">Tech Stack</div>
       <q-separator color="grey-5" class="q-mt-lg q-mb-xl" />
     </div>
-    <div class="warp row text-grey-10 text-h6 row">
-      <template v-for="(techs, key) in techList" :key="key">
-        <div class="col q-px-sm">
-          <q-card class="height-100pct column">
-            <q-card-section>
-              {{techs.name}}
+    <div class="warp text-grey-10 text-h6 row">
+      <template v-for="([key, techs], idx) in Object.entries(techList)" :key="`card-${idx}-${key}`">
+        <div
+          class="col-4 q-px-sm q-pb-md"
+        >
+          <q-card
+            class="height-100pct column"
+            data-aos="zoom-in"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+            :data-aos-delay="idx * 100"
+          >
+            <q-card-section class="row bg-blue-3 q-py-sm height-50px text-weight-bold">
+              <div class="col flex items-center justify-start">
+                <div class="dot dot__close"></div>
+                <div class="dot dot__min"></div>
+                <div class="dot dot__max"></div>
+              </div>
+              <div class="col text-center fs-85">{{techs.name}}</div>
+              <div class="col"></div>
             </q-card-section>
             <q-separator />
-            <q-card-section class="col">
+            <q-card-section class="col bg-grey-2">
               <div class="tech-container">
                 <template v-for="(tech, index) in techs.value" :key="`tech-${key}-${index}`">
-                  <div :class="`tech-box tech-box__${tech.name}`">
+                  <div
+                    :class="`tech-box tech-box__${tech.name}`"
+                    data-aos="zoom-in"
+                    data-aos-easing="linear"
+                    data-aos-duration="500"
+                    :data-aos-delay="idx * index * 100 + 600"
+                  >
                     <img :src="tech.image" alt="" v-if="!!tech.image" />
                     <q-tooltip v-if="!!tech.name">
                       {{ tech.name }}
@@ -32,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import {
   vuejs,
   javascript,
@@ -49,6 +74,7 @@ import {
   slack,
   postcss,
 } from "assets/tech";
+import AOS from 'Aos';
 
 export default defineComponent({
   setup() {
@@ -56,7 +82,7 @@ export default defineComponent({
 
     const techList = {
       frontend: {
-        name: '프론트엔드',
+        name: 'Front-end',
         value: [
           { name: "vuejs",      image: vuejs      },
           { name: "javascript", image: javascript },
@@ -66,7 +92,7 @@ export default defineComponent({
         ]
       },
       publish: {
-        name: '퍼블리싱',
+        name: 'Publish',
         value: [
           { name: "html",       image: html       },
           { name: "css",        image: css        },
@@ -75,21 +101,31 @@ export default defineComponent({
         ]
       },
       devTool: {
-        name: '개발 도구',
+        name: 'Dev tools',
         value: [
           { name: "webpack",    image: webpack    },
           { name: "vite",       image: vite       },
         ],
       },
       workplace: {
-        name: '협업 도구',
+        name: 'workplace',
         value: [
           { name: "git",        image: git        },
           { name: "gitlab",     image: gitlab     },
           { name: "slack",      image: slack      },
         ]
+      },
+      etc: {
+        name: 'etc',
+        value: [
+          {}
+        ]
       }
     };
+
+    onMounted(() => {
+      AOS.init();
+    })
 
     function hoverHexagon(type: string) {
       hoverItem.value = type;
@@ -141,11 +177,11 @@ $--tech-list: sass, git, html, javascript, typescript, flutter, vuejs, webpack,
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    gap: 10px;
+    gap: 15px;
   }
   &-box {
     aspect-ratio: 1/1;
-    width: calc(100% / 3 - 10px);
+    width: calc(100% / 4 - 15px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,4 +199,27 @@ $--tech-list: sass, git, html, javascript, typescript, flutter, vuejs, webpack,
   }
 }
 
+$--dot: (
+  close: $red-7,
+  min: $yellow-7,
+  max: $green-7,
+
+  size: 15px,
+);
+
+.dot {
+  height: map-get($map: $--dot, $key: size);
+  width: map-get($map: $--dot, $key: size);
+  border-radius: 50%;
+  margin: 4px;
+  &__close {
+    background: map-get($map: $--dot, $key: close);
+  }
+  &__min {
+    background: map-get($map: $--dot, $key: min);
+  }
+  &__max {
+    background: map-get($map: $--dot, $key: max);
+  }
+}
 </style>
