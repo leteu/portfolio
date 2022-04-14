@@ -48,15 +48,8 @@
         </div>
       </div>
     </div>
-    <q-page-container class="col column">
-      <div class="col">
-        <router-view class="full-height" />
-      </div>
-      <div class="q-pa-sm text-center full-width">
-        <div class="text-grey-6">
-          Copyright 2022. leteu. All rights reserved.
-        </div>
-      </div>
+    <q-page-container>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
