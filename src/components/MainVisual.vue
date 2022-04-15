@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
-import AOS from 'aos';
+import AOS from 'Aos';
 import LogoAnimation from "./LogoAnimation.vue";
 import NudgeMouse from "./NudgeMouse.vue";
 import Typing from "./Typing.vue";
