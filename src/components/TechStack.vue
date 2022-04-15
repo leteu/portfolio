@@ -1,5 +1,5 @@
 <template>
-  <div class="height-100vh full-width q-pa-xl scroll-y">
+  <div class="full-width q-pa-xl scroll-y">
     <div
       class="width-400px text-center q-mx-auto text-grey-5"
       data-aos="fade-down"
