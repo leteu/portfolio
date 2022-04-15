@@ -3,6 +3,7 @@
     <div class="full-width">
       <MainVisualVue />
       <TechStackVue />
+      <ProjectSectionVue />
 
       <div class="q-pa-sm text-center full-width">
         <div class="text-grey-6">
@@ -17,12 +18,14 @@
 import { defineComponent } from "vue";
 import MainVisualVue from "src/components/MainVisual.vue";
 import TechStackVue from "src/components/TechStack.vue";
+import ProjectSectionVue from "src/components/ProjectSection.vue";
 
 export default defineComponent({
   name: "IndexPage",
   components: {
     MainVisualVue,
     TechStackVue,
+    ProjectSectionVue,
   },
   setup() {},
 });
