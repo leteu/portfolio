@@ -74,7 +74,7 @@ import {
   slack,
   postcss,
 } from "assets/tech";
-import AOS from 'Aos';
+import Aos from 'aos';
 
 export default defineComponent({
   setup() {
@@ -124,7 +124,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      AOS.init();
+      Aos.init();
     })
 
     function hoverHexagon(type: string) {

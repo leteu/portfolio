@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
-import AOS from 'Aos';
+import Aos from 'aos';
 import LogoAnimation from "./LogoAnimation.vue";
 import NudgeMouse from "./NudgeMouse.vue";
 import Typing from "./Typing.vue";
@@ -36,7 +36,7 @@ export default defineComponent({
   setup() {
 
     onMounted(() => {
-      AOS.init();
+      Aos.init();
     })
   },
 });

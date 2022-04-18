@@ -1,6 +1,4 @@
-import { boot } from "quasar/wrappers";
-
+import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-export default boot(({app}) => {
-})
+export default Aos;
