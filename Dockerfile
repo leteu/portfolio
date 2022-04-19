@@ -1,3 +1,5 @@
+FROM amazonlinux:2
+
 # develop stage
 FROM node:16 as develop-stage
 WORKDIR /app
