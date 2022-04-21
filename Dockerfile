@@ -4,14 +4,13 @@ FROM amazonlinux:2
 FROM node:16 as develop-stage
 WORKDIR /app
 COPY package*.json ./
-COPY quasar.config.js ./
-COPY ./ ./
+COPY . .
 
 # build stage
 FROM develop-stage as build-stage
 WORKDIR /app
-RUN npm install
 RUN npm install -g @quasar/cli
+RUN npm install
 RUN quasar build -m spa
 
 # production stage
