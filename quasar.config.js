@@ -11,8 +11,6 @@
 
 const path = require('path');
 const { configure } = require('quasar/wrappers');
-const { plugins } = require('./postcss.config');
-
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -60,7 +58,7 @@ module.exports = configure(function (/* ctx */) {
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-      vueRouterBase: 'portfolio',
+      // vueRouterBase: 'portfolio',
       // vueDevtools,
       // vueOptionsAPI: false,
 
