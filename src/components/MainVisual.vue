@@ -1,45 +1,32 @@
 <template>
-  <div class="height-100vh main-box relative-position column">
-    <div class="col row z-index-50">
-      <div class="col flex justify-center items-center">
-        <MacStyleWindow
-          class="width-900px"
-          data-aos="flip-left"
-        >
-          <Typing class="q-pl-xl q-ml-xl text-weight-bold fs-400 q-py-xl" />
-        </MacStyleWindow>
-      </div>
-    </div>
-    <div class="flex justify-center items-center q-mb-lg">
-      <NudgeMouse />
-    </div>
-  </div>
+	<div class="height-100vh main-box relative-position column">
+		<div class="col row z-index-50">
+			<div class="col flex justify-center items-center">
+				<MacStyleWindow
+					class="width-900px"
+					data-aos="flip-left"
+				>
+					<TypingView class="q-pl-xl q-ml-xl text-weight-bold fs-400 q-py-xl" />
+				</MacStyleWindow>
+			</div>
+		</div>
+		<div class="flex justify-center items-center q-mb-lg">
+			<NudgeMouse />
+		</div>
+	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from "vue";
-import Aos from 'aos';
-import LogoAnimation from "./LogoAnimation.vue";
-import NudgeMouse from "./NudgeMouse.vue";
-import Typing from "./Typing.vue";
-import PlaneSvg from "src/components/PlaneSvg.vue";
-import MacStyleWindow from "src/components/MacStyleWindow.vue";
+<script lang="ts" setup>
+import Aos from 'aos'
+import { onMounted } from 'vue'
 
-export default defineComponent({
-  components: {
-    LogoAnimation,
-    NudgeMouse,
-    Typing,
-    PlaneSvg,
-    MacStyleWindow
-  },
-  setup() {
+import MacStyleWindow from 'src/components/MacStyleWindow.vue'
+import NudgeMouse from 'src/components/NudgeMouse.vue'
+import TypingView from 'src/components/TypingView.vue'
 
-    onMounted(() => {
-      Aos.init();
-    })
-  },
-});
+onMounted(() => {
+	Aos.init()
+})
 </script>
 
 <style lang="sass" scoped>

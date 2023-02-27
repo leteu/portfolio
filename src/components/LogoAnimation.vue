@@ -1,18 +1,24 @@
 <template>
-  <svg
-    version="1.1"
-    id="L"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    x="0px"
-    y="0px"
-    viewBox="0 0 300 650"
-    style="enable-background: new 0 0 300 650"
-    xml:space="preserve"
-  >
-    <polygon class="st0" points="0,350 0,550 100,650 100,450" />
-    <polygon class="st1" points="0,0 0,350 100,450 100,100 	"/>
-  </svg>
+	<svg
+		id="L"
+		version="1.1"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		x="0px"
+		y="0px"
+		viewBox="0 0 300 650"
+		style="enable-background: new 0 0 300 650"
+		xml:space="preserve"
+	>
+		<polygon
+			class="st0"
+			points="0,350 0,550 100,650 100,450"
+		/>
+		<polygon
+			class="st1"
+			points="0,0 0,350 100,450 100,100 	"
+		/>
+	</svg>
 </template>
 
 <style lang="sass" scoped>

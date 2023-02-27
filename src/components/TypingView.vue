@@ -1,34 +1,15 @@
 <template>
-  <div class="typing-text d2coding">
-    <p>
-      Hello, I'm leteu.
-    </p>
-    <p>
-      Web <span class="gradient-text">frontend</span> developer.
-    </p>
-    <!-- <p class="fs-80">
+	<div class="typing-text d2coding">
+		<p>Hello, I'm leteu.</p>
+		<p>Web <span class="gradient-text">frontend</span> developer.</p>
+		<!-- <p class="fs-80">
       Always think about
     </p>
     <p class="fs-80">
       optimize <span class="gradient-text">performance.</span>
     </p> -->
-  </div>
+	</div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    strArray: {
-      type: Array
-    }
-  },
-  setup(props) {
-
-  },
-})
-</script>
 
 <style lang="sass" scoped>
 .typing-text
@@ -44,7 +25,7 @@ export default defineComponent({
       opacity: 0
       animation: type 0.7s steps(14, end)
       animation-fill-mode: forwards
-    &:nth-child(2) 
+    &:nth-child(2)
       width: 21.3ch
       opacity: 0
       animation: type2 1s steps(22, end)
@@ -85,7 +66,7 @@ export default defineComponent({
     opacity: 1
     border: none
 
-@keyframes type3 
+@keyframes type3
   0%
     width: 0
   1%

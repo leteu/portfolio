@@ -1,0 +1,8 @@
+*.pcss
+yarn.lock
+*.config.js
+docs/*
+.eslintignore
+.eslintrc.js
+.prettierignore
+.prettierrc

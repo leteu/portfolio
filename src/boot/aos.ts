@@ -1,4 +1,4 @@
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
-export default Aos;
+export default Aos

@@ -1,22 +1,22 @@
 <template>
-  <img
-    src="~assets/plane-build.svg"
-    alt=""
-    class="height-100pct plane"
-    :class="`plane__${pressKey}`"
-  />
+	<img
+		src="~assets/plane-build.svg"
+		alt=""
+		class="height-100pct plane"
+		:class="`plane__${pressKey}`"
+	/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-    pressKey: {
-      type: String,
-      required: true
-    }
-  }
+	props: {
+		pressKey: {
+			type: String,
+			required: true,
+		},
+	},
 })
 </script>
 
