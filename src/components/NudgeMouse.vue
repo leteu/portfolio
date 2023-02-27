@@ -1,5 +1,5 @@
 <template>
-	<div class="mouse"></div>
+  <div class="mouse"></div>
 </template>
 
 <style lang="scss" scoped>

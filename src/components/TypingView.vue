@@ -1,14 +1,14 @@
 <template>
-	<div class="typing-text d2coding">
-		<p>Hello, I'm leteu.</p>
-		<p>Web <span class="gradient-text">frontend</span> developer.</p>
-		<!-- <p class="fs-80">
+  <div class="typing-text d2coding">
+    <p>Hello, I'm leteu.</p>
+    <p>Web <span class="gradient-text">frontend</span> developer.</p>
+    <!-- <p class="fs-80">
       Always think about
     </p>
     <p class="fs-80">
       optimize <span class="gradient-text">performance.</span>
     </p> -->
-	</div>
+  </div>
 </template>
 
 <style lang="sass" scoped>
