@@ -1,1 +1,1 @@
-export { default as ScrollLine } from './ScrollLine.vue'
+export { default as WaveInfinite } from './WaveInfinite.vue'

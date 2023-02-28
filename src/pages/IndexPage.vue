@@ -3,6 +3,7 @@
     <MainVisual />
     <TechStack />
     <TimeLine />
+    <Footer />
   </q-page>
 </template>
 
@@ -10,9 +11,10 @@
 import AOS from 'aos'
 import { onMounted } from 'vue'
 
+import Footer from 'src/components/FooterComponent.vue'
 import MainVisual from 'src/components/MainVisual.vue'
 import TechStack from 'src/components/TechStack.vue'
-import TimeLine from 'src/components/TimeLine.vue'
+import { TimeLine } from 'src/components/TimeLine'
 
 onMounted(() => {
   AOS.init()
