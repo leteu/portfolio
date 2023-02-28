@@ -1,5 +1,5 @@
 <template>
-  <div class="height-100vh main-box relative-position column">
+  <div class="main-visual height-100vh main-box relative-position column">
     <div class="col row z-index-50">
       <div class="col flex justify-center items-center">
         <MacStyleWindow

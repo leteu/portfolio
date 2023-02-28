@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width q-pa-xl scroll-y">
+  <div class="tech-stack full-width q-pa-xl scroll-y">
     <div
       class="width-400px text-center q-mx-auto text-grey-5"
       data-aos="fade-down"
@@ -70,8 +70,7 @@
 <script lang="ts">
 import './SectionTitle.sass'
 
-import Aos from 'aos'
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 import {
   vuejs,
@@ -134,10 +133,6 @@ export default defineComponent({
         value: [],
       },
     }
-
-    onMounted(() => {
-      Aos.init()
-    })
 
     function hoverHexagon(type: string) {
       hoverItem.value = type

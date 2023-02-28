@@ -4,6 +4,9 @@
     maximized
     full-height
     full-width
+    no-esc-dismiss
+    no-backdrop-dismiss
+    no-route-dismiss
   >
     <q-card class="bg-leteu-40">
       <q-card-section class="q-pa-none relative-position full-height">
