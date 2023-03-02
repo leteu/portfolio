@@ -49,7 +49,7 @@ import { CSSProperties, onMounted, reactive, ref } from 'vue'
 
 import Logo from 'src/assets/logo.png'
 
-const { height, offset } = dom
+const { height } = dom
 
 const lineScale = ref<number>(0)
 
@@ -68,7 +68,7 @@ const heightMap = reactive({
 })
 
 const onScroll = (pos: number) => {
-  const { mainVisual, techStack, timeLine, timeLineTitle } = heightMap
+  const { mainVisual, techStack, timeLine, timeLineTitle, dashed } = heightMap
 
   const startPos = mainVisual + techStack + timeLineTitle
   const endPos = mainVisual + techStack + timeLine - 1000
@@ -94,7 +94,15 @@ const onScroll = (pos: number) => {
   avatar.value.position = 'fixed'
   avatar.value.top = '45%'
 
-  const calcScale = ((pos - startPos) / (timeLine + timeLine * (2 / 7))) * 2
+  // const calcScale = ((pos - startPos) / (timeLine + timeLine * (2 / 7))) * 2
+  const avatarRect = document.querySelector('.current__avatar')?.getBoundingClientRect().top as number
+  const defaultLineRect = document.querySelector('.current__default')?.getBoundingClientRect().bottom as number
+  // const diff = Math.abs(avatarRect - defaultLineRect)
+  const diff = avatarRect - defaultLineRect
+
+  console.log(diff)
+
+  const calcScale = diff / (dashed + 100)
 
   lineScale.value = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
 }
