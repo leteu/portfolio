@@ -1,5 +1,5 @@
 $line-width: 5px;
-$bottom-space: 500px;
+$bottom-space: 850px;
 
 .time-line {
   height: 3000px;
@@ -28,7 +28,7 @@ $bottom-space: 500px;
   background-image: linear-gradient(180deg, transparent, transparent 50%, rgba(225, 227, 237, 0.7) 50%, rgba(225, 227, 237, 0.7)100%);
   background-size: 2px 8px;
   background-repeat: repeat-y;
-  height: calc(100% - #{$bottom-space});
+  height: calc(100% - 100px - #{$bottom-space});
   margin-top: 100px;
 }
 

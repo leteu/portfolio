@@ -26,9 +26,7 @@
       />
       <div
         class="current__avatar"
-        :style="{
-          marginTop: `calc(${avatar.top * heightMap.dashed}px + 100px)`,
-        }"
+        :style="avatar"
       >
         <div>
           <img
@@ -39,6 +37,7 @@
       </div>
     </div>
   </div>
+  <!-- <div style="height: 850px"></div> -->
 </template>
 
 <script lang="ts" setup>
@@ -46,16 +45,18 @@ import './index.scss'
 import 'src/components/SectionTitle.sass'
 
 import { dom } from 'quasar'
-import { onMounted, reactive, ref } from 'vue'
+import { CSSProperties, onMounted, reactive, ref } from 'vue'
 
 import Logo from 'src/assets/logo.png'
 
-const { height } = dom
+const { height, offset } = dom
 
 const lineScale = ref<number>(0)
 
-const avatar = reactive({
-  top: 100,
+const avatar = ref<CSSProperties>({
+  position: 'absolute',
+  top: '100px',
+  bottom: undefined,
 })
 
 const heightMap = reactive({
@@ -63,32 +64,41 @@ const heightMap = reactive({
   techStack: 0,
   timeLine: 0,
   dashed: 0,
+  timeLineTitle: 0,
 })
 
 const onScroll = (pos: number) => {
-  const { mainVisual, techStack, timeLine } = heightMap
+  const { mainVisual, techStack, timeLine, timeLineTitle } = heightMap
 
-  const startPos = mainVisual + techStack
-  const endPos = mainVisual + techStack + timeLine - 500
+  const startPos = mainVisual + techStack + timeLineTitle
+  const endPos = mainVisual + techStack + timeLine - 1000
 
   if (pos < startPos) {
     lineScale.value = 0
-    avatar.top = 0
+    avatar.value.position = 'absolute'
+    avatar.value.top = '100px'
+    avatar.value.bottom = undefined
 
     return
   }
 
   if (pos >= endPos) {
     lineScale.value = 1
-    avatar.top = 1
+    avatar.value.position = 'absolute'
+    avatar.value.top = undefined
+    avatar.value.bottom = '750px'
 
     return
   }
 
+  avatar.value.position = 'fixed'
+  avatar.value.top = '45%'
+
   const calcScale = ((pos - startPos) / timeLine) * 2
 
   lineScale.value = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
-  avatar.top = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
+
+  console.log(offset(document.querySelector('.current__avatar') as Element))
 }
 
 onMounted(() => {
@@ -96,5 +106,6 @@ onMounted(() => {
   heightMap.techStack = height(document.querySelector('.tech-stack') as Element)
   heightMap.timeLine = height(document.querySelector('.time-line') as Element)
   heightMap.dashed = height(document.querySelector('.dashed') as Element)
+  heightMap.timeLineTitle = height(document.querySelector('.time-line__title') as Element)
 })
 </script>
