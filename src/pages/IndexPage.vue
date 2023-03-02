@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row justify-evenly">
+  <q-page class="row justify-evenly overflow-hidden">
     <MainVisual />
     <TechStack />
     <TimeLine />
