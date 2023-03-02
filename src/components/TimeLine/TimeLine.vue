@@ -94,11 +94,9 @@ const onScroll = (pos: number) => {
   avatar.value.position = 'fixed'
   avatar.value.top = '45%'
 
-  const calcScale = ((pos - startPos) / timeLine) * 2
+  const calcScale = ((pos - startPos) / (timeLine + timeLine * (2 / 7))) * 2
 
   lineScale.value = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
-
-  console.log(offset(document.querySelector('.current__avatar') as Element))
 }
 
 onMounted(() => {
