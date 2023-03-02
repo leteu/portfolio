@@ -102,7 +102,7 @@ const onScroll = (pos: number) => {
 
   console.log(diff)
 
-  const calcScale = diff / (dashed + 100)
+  const calcScale = diff / (dashed + 100) + 0.008
 
   lineScale.value = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
 }
