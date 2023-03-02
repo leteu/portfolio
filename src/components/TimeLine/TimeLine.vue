@@ -35,9 +35,72 @@
           />
         </div>
       </div>
+      <div
+        class="history row gap-lg"
+        :style="{ top: '150px' }"
+      >
+        <div
+          class="history__spot"
+          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
+        ></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+
+      <div
+        class="history row gap-lg"
+        :style="{ top: '550px' }"
+      >
+        <div
+          class="history__spot"
+          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
+        ></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+
+      <div
+        class="history row gap-lg"
+        :style="{ top: '950px' }"
+      >
+        <div
+          class="history__spot"
+          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
+        ></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+
+      <div
+        class="history row gap-lg"
+        :style="{ top: '1350px' }"
+      >
+        <div
+          class="history__spot"
+          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
+        ></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+
+      <div
+        class="history row gap-lg"
+        :style="{ top: '1750px' }"
+      >
+        <div
+          class="history__spot"
+          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
+        ></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
     </div>
+    <template v-if="lineScale === 1">
+      <!-- <q-card class="contact">
+        <q-card-section> </q-card-section>
+      </q-card> -->
+    </template>
   </div>
-  <!-- <div style="height: 850px"></div> -->
 </template>
 
 <script lang="ts" setup>
@@ -91,19 +154,14 @@ const onScroll = (pos: number) => {
     return
   }
 
-  avatar.value.position = 'fixed'
-  avatar.value.top = '45%'
-
-  // const calcScale = ((pos - startPos) / (timeLine + timeLine * (2 / 7))) * 2
   const avatarRect = document.querySelector('.current__avatar')?.getBoundingClientRect().top as number
   const defaultLineRect = document.querySelector('.current__default')?.getBoundingClientRect().bottom as number
-  // const diff = Math.abs(avatarRect - defaultLineRect)
+
   const diff = avatarRect - defaultLineRect
+  const calcScale = diff / dashed + 0.008
 
-  console.log(diff)
-
-  const calcScale = diff / (dashed + 100) + 0.008
-
+  avatar.value.position = 'fixed'
+  avatar.value.top = '45%'
   lineScale.value = calcScale <= 0 ? 0 : calcScale >= 1 ? 1 : calcScale
 }
 

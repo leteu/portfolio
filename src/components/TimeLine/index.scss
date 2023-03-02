@@ -1,5 +1,6 @@
 $line-width: 5px;
 $bottom-space: 850px;
+$dash-color: rgba(225, 227, 237, 0.7);
 
 .time-line {
   height: 3000px;
@@ -9,6 +10,51 @@ $bottom-space: 850px;
     text-align: center;
     margin: 0 auto;
     color: $grey-5;
+  }
+  .history {
+    $--spot: 20px;
+    $--padding: -15px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    &__spot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: $--spot;
+      height: $--spot;
+      border-radius: 50%;
+      border: 2px solid var(--spot-color);
+      background: #4a4a4a;
+      box-shadow: 0 0 0 5px #4a4a4a;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: transparent;
+      }
+      &::after {
+        top: $--padding;
+        box-shadow: 0 3px 0 3px #4a4a4a;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+      &::before {
+        bottom: $--padding;
+        box-shadow: 0 -3px 0 3px #4a4a4a;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+    }
+  }
+  .contact {
+    position: absolute;
+    bottom: 500px;
   }
 }
 
@@ -25,10 +71,10 @@ $bottom-space: 850px;
 .dashed {
   @include line-pos;
   transform: translateX(-1px);
-  background-image: linear-gradient(180deg, transparent, transparent 50%, rgba(225, 227, 237, 0.7) 50%, rgba(225, 227, 237, 0.7)100%);
+  background-image: linear-gradient(180deg, transparent, transparent 50%, #{$dash-color} 50%, #{$dash-color} 100%);
   background-size: 2px 8px;
   background-repeat: repeat-y;
-  height: calc(100% - 100px - #{$bottom-space});
+  height: calc(100% - #{$bottom-space});
   margin-top: 100px;
 }
 
