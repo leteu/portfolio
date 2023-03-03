@@ -31,7 +31,8 @@ module.exports = configure(function (/* ctx */) {
       'app.scss',
       'app.sass',
       'app.css',
-      'reset.sass'
+      'reset.sass',
+      'postcss.pcss'
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras

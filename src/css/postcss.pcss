@@ -1,0 +1,88 @@
+.height-inherit {
+  height: inherit;
+}
+
+.min-height-inherit {
+  min-height: inherit;
+}
+
+.max-height-inherit {
+  max-height: inherit;
+}
+
+.width-inherit {
+  width: inherit;
+}
+
+@for $i from 1 to 100 {
+  .max-height-$(i)vh { max-height: $(i)vh !important; }
+  .max-width-$(i)vw { max-width: $(i)vw !important; }
+  .min-height-$(i)vh { min-height: $(i)vh !important; }
+  .min-width-$(i)vw { min-width: $(i)vw !important; }
+
+  .max-height-$(i)pct { max-height: $(i)% !important; }
+  .max-width-$(i)pct { max-width: $(i)% !important; }
+  .min-height-$(i)pct { min-height: $(i)% !important; }
+  .min-width-$(i)pct { min-width: $(i)% !important; }
+
+  .height-$(i)pct { height: $(i)% !important; }
+  .width-$(i)pct { width: $(i)% !important; }
+  .height-$(i)vh { height: $(i)vh !important; }
+  .width-$(i)vw { width: $(i)vw !important; }
+
+  .bg-leteu-$(i) { background: hsl(171, 65%, calc(63%*$(i)/100)) }
+  .bg-leteu-under-$(i) { background: hsl(171, 37%, calc(48%*$(i)/100)) }
+}
+
+@for $i from 1 to 2000 {
+  .height-$(i)px { height: $(i)px !important; }
+  .width-$(i)px { width: $(i)px !important; }
+  .max-height-$(i)px { max-height: $(i)px !important; }
+  .max-width-$(i)px { max-width: $(i)px !important; }
+  .min-height-$(i)px { min-height: $(i)px !important; }
+  .min-width-$(i)px { min-width: $(i)px !important; }
+
+  .ma-$(i) { margin: $(i)px }
+  .mt-$(i) { margin-top: $(i)px }
+  .mb-$(i) { margin-bottom: $(i)px }
+  .ml-$(i) { margin-left: $(i)px }
+  .mr-$(i) { margin-right: $(i)px }
+  .mx-$(i) {
+    margin-left: $(i)px;
+    margin-right: $(i)px;
+  }
+  .my-$(i) {
+    margin-top: $(i)px;
+    margin-bottom: $(i)px;
+  }
+
+  .pa-$(i) { padding: $(i)px }
+  .pt-$(i) { padding-top: $(i)px }
+  .pb-$(i) { padding-bottom: $(i)px }
+  .pl-$(i) { padding-left: $(i)px }
+  .pr-$(i) { padding-right: $(i)px }
+  .px-$(i) {
+    padding-left: $(i)px;
+    padding-right: $(i)px;
+  }
+  .py-$(i) {
+    padding-top: $(i)px;
+    padding-bottom: $(i)px;
+  }
+
+  .fs-$(i) { font-size: calc($(i)em / 100) !important; }
+  .fs-$(i)px { font-size: $(i)px !important; }
+  .line-height-$(i)px { line-height: $(i)px !important; }
+  .line-height-$(i)em { line-height: calc($(i)em / 100) !important; }
+}
+
+@for $i from 1 to 10 {
+  .ell_wrap-$i {
+    max-width: 450px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $(i);
+    -webkit-box-orient:vertical
+  }
+}

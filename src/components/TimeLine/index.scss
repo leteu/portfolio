@@ -4,7 +4,7 @@ $dash-color: rgba(225, 227, 237, 0.7);
 $line-color: #00ffb3;
 
 .time-line {
-  height: 3000px;
+  height: 3300px;
   overflow: hidden;
   &__title {
     width: 400px;
@@ -22,7 +22,7 @@ $line-color: #00ffb3;
     transform: translateX(-50%);
     &__spot {
       position: absolute;
-      top: 0;
+      top: calc(#{$--spot} / 2);
       left: 50%;
       transform: translateX(-50%);
       width: $--spot;
@@ -53,6 +53,7 @@ $line-color: #00ffb3;
         border-top-right-radius: 50%;
       }
       &__active {
+        top: 0;
         border-color: $line-color;
         width: calc(#{$--spot} * 2);
         height: calc(#{$--spot} * 2);
@@ -64,6 +65,33 @@ $line-color: #00ffb3;
           border-radius: 50%;
         }
       }
+    }
+    &__card {
+      width: 500px;
+      overflow: hidden;
+      &__img-box {
+        width: 100%;
+        height: 270px;
+        background: #ccc;
+        img {
+          width: 100%;
+          height: 100%
+        }
+      }
+      &__text {
+        &__title {
+          font-size: 32px;
+          font-weight: bold;
+          line-height: 32px;
+        }
+        &__desc {
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+    }
+    &__text {
+      color: white
     }
   }
   .contact {
