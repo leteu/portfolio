@@ -13,7 +13,12 @@
       />
     </div>
     <div class="flex items-center justify-center">
-      <q-card class="about-me__card">
+      <q-card
+        class="about-me__card"
+        data-aos="flip-left"
+        data-aos-easing="linear"
+        data-aos-duration="500"
+      >
         <q-card-section class="q-pa-lg about-me__card__list">
           <div class="about-me__card__item">
             <q-icon
