@@ -70,12 +70,21 @@
         <template #left></template>
         <template #right></template>
       </HistoryBox>
+      <HistoryBox
+        :top="2150"
+        :active="timelineDiff >= 2150"
+      >
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
+      <HistoryBox
+        :top="2550"
+        :active="timelineDiff >= 2550"
+      >
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
     </div>
-    <template v-if="lineScale === 1">
-      <!-- <q-card class="contact">
-        <q-card-section> </q-card-section>
-      </q-card> -->
-    </template>
   </div>
 </template>
 
@@ -114,7 +123,7 @@ const onScroll = (pos: number) => {
   const { mainVisual, techStack, timeLine, timeLineTitle, dashed } = heightMap
 
   const startPos = mainVisual + techStack + timeLineTitle
-  const endPos = mainVisual + techStack + timeLine - 1000
+  const endPos = mainVisual + techStack + timeLine - 200
 
   if (pos < startPos) {
     lineScale.value = 0
@@ -129,7 +138,7 @@ const onScroll = (pos: number) => {
     lineScale.value = 1
     avatar.value.position = 'absolute'
     avatar.value.top = undefined
-    avatar.value.bottom = '750px'
+    avatar.value.bottom = '0px'
 
     return
   }

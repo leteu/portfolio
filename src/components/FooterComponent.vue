@@ -26,11 +26,9 @@ import { WaveInfinite } from 'src/components/misc'
 }
 
 .footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 400;
+  height: 300px;
   width: 100%;
+  position: relative;
   .copyright {
     width: 100%;
     text-align: center;
