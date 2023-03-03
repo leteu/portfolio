@@ -7,12 +7,26 @@
     <div
       class="col relative-position flex"
       :class="`justify-${slotAlign[0]}`"
+      :style="
+        !slots.left
+          ? {
+              zIndex: -100,
+            }
+          : undefined
+      "
     >
       <slot name="left"></slot>
     </div>
     <div
       class="col relative-position flex"
       :class="`justify-${slotAlign[1]}`"
+      :style="
+        !slots.right
+          ? {
+              zIndex: -100,
+            }
+          : undefined
+      "
     >
       <slot name="right"></slot>
     </div>
@@ -20,11 +34,11 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from 'vue'
+import { PropType, useSlots } from 'vue'
 
 import { HistorySpot } from '.'
 
-type Align = 'start' | 'center' | 'end'
+import { Align } from 'app/types'
 
 defineProps({
   top: {
@@ -40,4 +54,6 @@ defineProps({
     default: () => ['center', 'center'],
   },
 })
+
+const slots = useSlots()
 </script>
