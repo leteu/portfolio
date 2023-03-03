@@ -58,7 +58,7 @@
           class="logo"
           @click="
             () => {
-              $route.push('/')
+              $router.push('/')
             }
           "
         >
@@ -80,36 +80,26 @@
   </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+function ContactMeFn(type: 'github' | 'discord' | 'tistory'): void {
+  const link = document.createElement('a')
+  link.target = '_blank'
 
-export default defineComponent({
-  setup() {
-    function ContactMeFn(type: 'github' | 'discord' | 'tistory'): void {
-      const link = document.createElement('a')
-      link.target = '_blank'
+  switch (type) {
+    case 'github':
+      link.href = 'https://github.com/leteu'
+      break
+    case 'discord':
+      link.href = 'https://discordapp.com/users/leteu#0718'
+      break
+    case 'tistory':
+      link.href = 'https://leteu.tistory.com/'
+      break
+  }
 
-      switch (type) {
-        case 'github':
-          link.href = 'https://github.com/leteu'
-          break
-        case 'discord':
-          link.href = 'https://discordapp.com/users/leteu#0718'
-          break
-        case 'tistory':
-          link.href = 'https://leteu.tistory.com/'
-          break
-      }
-
-      link.click()
-      link.remove()
-    }
-
-    return {
-      ContactMeFn,
-    }
-  },
-})
+  link.click()
+  link.remove()
+}
 </script>
 
 <style lang="sass" scoped>
