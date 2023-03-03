@@ -35,65 +35,41 @@
           />
         </div>
       </div>
-      <div
-        class="history row gap-lg"
-        :style="{ top: '150px' }"
+      <HistoryBox
+        :top="150"
+        :active="timelineDiff >= 150"
       >
-        <div
-          class="history__spot"
-          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
-        ></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-
-      <div
-        class="history row gap-lg"
-        :style="{ top: '550px' }"
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
+      <HistoryBox
+        :top="550"
+        :active="timelineDiff >= 550"
       >
-        <div
-          class="history__spot"
-          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
-        ></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-
-      <div
-        class="history row gap-lg"
-        :style="{ top: '950px' }"
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
+      <HistoryBox
+        :top="950"
+        :active="timelineDiff >= 950"
       >
-        <div
-          class="history__spot"
-          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
-        ></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-
-      <div
-        class="history row gap-lg"
-        :style="{ top: '1350px' }"
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
+      <HistoryBox
+        :top="1350"
+        :active="timelineDiff >= 1350"
       >
-        <div
-          class="history__spot"
-          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
-        ></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-
-      <div
-        class="history row gap-lg"
-        :style="{ top: '1750px' }"
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
+      <HistoryBox
+        :top="1750"
+        :active="timelineDiff >= 1750"
       >
-        <div
-          class="history__spot"
-          :style="{ '--spot-color': 'rgba(225, 227, 237, 0.7)' }"
-        ></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
+        <template #left></template>
+        <template #right></template>
+      </HistoryBox>
     </div>
     <template v-if="lineScale === 1">
       <!-- <q-card class="contact">
@@ -109,6 +85,8 @@ import 'src/components/SectionTitle.sass'
 
 import { dom } from 'quasar'
 import { CSSProperties, onMounted, reactive, ref } from 'vue'
+
+import { HistoryBox } from '.'
 
 import Logo from 'src/assets/logo.png'
 
@@ -129,6 +107,8 @@ const heightMap = reactive({
   dashed: 0,
   timeLineTitle: 0,
 })
+
+const timelineDiff = ref(0)
 
 const onScroll = (pos: number) => {
   const { mainVisual, techStack, timeLine, timeLineTitle, dashed } = heightMap
@@ -155,9 +135,11 @@ const onScroll = (pos: number) => {
   }
 
   const avatarRect = document.querySelector('.current__avatar')?.getBoundingClientRect().top as number
-  const defaultLineRect = document.querySelector('.current__default')?.getBoundingClientRect().bottom as number
+  const defaultLineRect = document.querySelector('.current__default')?.getBoundingClientRect() as DOMRect
 
-  const diff = avatarRect - defaultLineRect
+  timelineDiff.value = avatarRect - defaultLineRect.top
+
+  const diff = avatarRect - defaultLineRect.bottom
   const calcScale = diff / dashed + 0.008
 
   avatar.value.position = 'fixed'
