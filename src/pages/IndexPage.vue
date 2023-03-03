@@ -3,6 +3,7 @@
     <MainVisual />
     <TechStack />
     <TimeLine />
+    <ContactMe />
     <Footer />
   </q-page>
 </template>
@@ -11,6 +12,7 @@
 import AOS from 'aos'
 import { onMounted } from 'vue'
 
+import { ContactMe } from 'src/components/ContactMe'
 import Footer from 'src/components/FooterComponent.vue'
 import MainVisual from 'src/components/MainVisual.vue'
 import TechStack from 'src/components/TechStack.vue'
