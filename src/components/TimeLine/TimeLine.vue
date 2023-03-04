@@ -273,7 +273,7 @@ const historyList: HistoryItem[] = [
     ],
   },
   {
-    top: 2000,
+    top: 2100,
     type: 'card',
     slot: 'right',
     date: '2022.10 ~ 2023.01',
