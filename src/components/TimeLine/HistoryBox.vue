@@ -12,7 +12,9 @@
           ? {
               zIndex: -100,
             }
-          : undefined
+          : {
+              zIndex: 400,
+            }
       "
     >
       <slot name="left"></slot>
@@ -25,7 +27,9 @@
           ? {
               zIndex: -100,
             }
-          : undefined
+          : {
+              zIndex: 400,
+            }
       "
     >
       <slot name="right"></slot>
