@@ -82,11 +82,7 @@ import { CSSProperties, onMounted, reactive, ref } from 'vue'
 import { HistoryBox, HistoryCard } from '.'
 
 import { HistoryItem } from 'app/types'
-import Baleun from 'src/assets/history/baleun.png'
-import Hemp from 'src/assets/history/hemp.png'
-import Ideation from 'src/assets/history/ideation.png'
-import Nre from 'src/assets/history/nre.png'
-import Specheck from 'src/assets/history/specheck.png'
+import { Baleun, Hemp, Ideation, Nre, Specheck, PhDash } from 'src/assets/history'
 import Logo from 'src/assets/logo.png'
 
 import './index.scss'
@@ -288,6 +284,39 @@ const historyList: HistoryItem[] = [
       { label: 'Vite', color: colorList['vite'] },
       { label: 'Gitlab', color: colorList['gitlab'] },
     ],
+  },
+  {
+    top: 2700,
+    type: 'card',
+    slot: 'left',
+    date: '2022.10 ~ 2023.01',
+    img: PhDash,
+    title: '[포항시청] 민관협력 기반의 빅데이터 통합플랫폼 및 디지털 시장실 구축 사업',
+    desc: '포항시 GEO infographic 지도 개발 및 빅데이터 포탈 및 대시보드 화면 개발',
+    tech: [
+      { label: 'Vue.js', color: colorList['vuejs'] },
+      { label: 'Typescript', color: colorList['typescript'] },
+      { label: 'Sass', color: colorList['sass'] },
+      { label: 'PostCSS', color: colorList['postcss'] },
+      { label: 'Vite', color: colorList['vite'] },
+      { label: 'Gitlab', color: colorList['gitlab'] },
+    ],
+  },
+  {
+    top: 3300,
+    type: 'text',
+    slot: 'right',
+    align: ['center', 'start'],
+    date: '2023.11.02',
+    title: 'DXWorks 퇴사',
+  },
+  {
+    top: 3350,
+    type: 'text',
+    slot: 'left',
+    align: ['end', 'center'],
+    date: '2023.11.06',
+    title: '원소프트다임 입사',
   },
 ]
 </script>
