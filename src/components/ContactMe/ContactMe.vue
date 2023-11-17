@@ -74,7 +74,7 @@ import 'src/components/SectionTitle.sass'
 
 const mail = 'contact@leteu.dev'
 const call = '+82 10-8905-7546'
-const discord = 'leteu#0718'
+const discord = 'leteu'
 
 function ContactMeFn(type: 'mail' | 'call' | 'discord'): void {
   const link = document.createElement('a')
@@ -90,7 +90,7 @@ function ContactMeFn(type: 'mail' | 'call' | 'discord'): void {
     }
     case 'discord': {
       link.target = '_blank'
-      link.href = `https://discordapp.com/users/${discord}`
+      link.href = 'https://discordapp.com/users/208842367019515905'
       break
     }
   }

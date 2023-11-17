@@ -90,7 +90,7 @@ function ContactMeFn(type: 'github' | 'discord' | 'tistory'): void {
       link.href = 'https://github.com/leteu'
       break
     case 'discord':
-      link.href = 'https://discordapp.com/users/leteu'
+      link.href = 'https://discordapp.com/users/208842367019515905'
       break
     case 'tistory':
       link.href = 'https://leteu.tistory.com/'
