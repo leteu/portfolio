@@ -17,51 +17,49 @@
         v-for="([key, techs], idx) in Object.entries(techList)"
         :key="`card-${idx}-${key}`"
       >
-        <div class="col-4 q-px-sm q-pb-md">
-          <q-card
-            class="height-100pct column border-radius-15px"
-            data-aos="zoom-in"
-            data-aos-easing="linear"
-            data-aos-duration="500"
-            :data-aos-delay="idx * 100"
-          >
-            <q-card-section class="row bg-blue-3 q-py-sm height-50px text-weight-bold">
-              <div class="col flex items-center justify-start">
-                <div class="dot dot__close"></div>
-                <div class="dot dot__min"></div>
-                <div class="dot dot__max"></div>
-              </div>
-              <div class="col text-center fs-85">{{ techs.name }}</div>
-              <div class="col"></div>
-            </q-card-section>
-            <q-separator />
-            <q-card-section class="col bg-grey-2">
-              <div class="tech-container">
-                <template
-                  v-for="(tech, index) in techs.value"
-                  :key="`tech-${key}-${index}`"
+        <q-card
+          class="height-100pct column border-radius-15px"
+          data-aos="zoom-in"
+          data-aos-easing="linear"
+          data-aos-duration="500"
+          :data-aos-delay="idx * 100"
+        >
+          <q-card-section class="row bg-blue-3 q-py-sm height-50px text-weight-bold">
+            <div class="col flex items-center justify-start">
+              <div class="dot dot__close"></div>
+              <div class="dot dot__min"></div>
+              <div class="dot dot__max"></div>
+            </div>
+            <div class="col text-center fs-85">{{ techs.name }}</div>
+            <div class="col"></div>
+          </q-card-section>
+          <q-separator />
+          <q-card-section class="col bg-grey-2">
+            <div class="tech-container">
+              <template
+                v-for="(tech, index) in techs.value"
+                :key="`tech-${key}-${index}`"
+              >
+                <div
+                  :class="`tech-box tech-box__${tech.name}`"
+                  data-aos="zoom-in"
+                  data-aos-easing="linear"
+                  data-aos-duration="500"
+                  :data-aos-delay="idx * index * 100 + 600"
                 >
-                  <div
-                    :class="`tech-box tech-box__${tech.name}`"
-                    data-aos="zoom-in"
-                    data-aos-easing="linear"
-                    data-aos-duration="500"
-                    :data-aos-delay="idx * index * 100 + 600"
-                  >
-                    <img
-                      v-if="!!tech.image"
-                      :src="tech.image"
-                      alt=""
-                    />
-                    <q-tooltip v-if="!!tech.name">
-                      {{ tech.name }}
-                    </q-tooltip>
-                  </div>
-                </template>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
+                  <img
+                    v-if="!!tech.image"
+                    :src="tech.image"
+                    alt=""
+                  />
+                  <q-tooltip>
+                    {{ tech.name }}
+                  </q-tooltip>
+                </div>
+              </template>
+            </div>
+          </q-card-section>
+        </q-card>
       </template>
     </div>
   </div>
@@ -77,6 +75,7 @@ import {
   javascript,
   typescript,
   flutter,
+  rn,
   sass,
   html,
   css,
@@ -87,6 +86,13 @@ import {
   gitlab,
   slack,
   postcss,
+  qgis,
+  figma,
+  eslint,
+  prettier,
+  husky,
+  githubAction,
+  obsidian,
 } from 'assets/tech'
 
 export default defineComponent({
@@ -102,11 +108,7 @@ export default defineComponent({
           { name: 'typescript', image: typescript },
           { name: 'flutter', image: flutter },
           { name: 'electron', image: electron },
-        ],
-      },
-      publish: {
-        name: 'Publish',
-        value: [
+          { name: 'react-native', image: rn },
           { name: 'html', image: html },
           { name: 'css', image: css },
           { name: 'sass', image: sass },
@@ -118,6 +120,10 @@ export default defineComponent({
         value: [
           { name: 'webpack', image: webpack },
           { name: 'vite', image: vite },
+          { name: 'eslint', image: eslint },
+          { name: 'prettier', image: prettier },
+          { name: 'husky', image: husky },
+          { name: 'github-action', image: githubAction },
         ],
       },
       workplace: {
@@ -130,7 +136,11 @@ export default defineComponent({
       },
       etc: {
         name: 'etc',
-        value: [],
+        value: [
+          { name: 'qgis', image: qgis },
+          { name: 'figma', image: figma },
+          { name: 'obsidian', image: obsidian },
+        ],
       },
     }
 
@@ -152,8 +162,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import 'src/css/app.scss';
+
 /* Colors */
-$--colors: (
+$--tech-list: (
   css: #1572b6,
   git: #f14e32,
   html: #e34f26,
@@ -168,11 +180,27 @@ $--colors: (
   electron: #9feaf9,
   slack: #36c5f0,
   postcss: #dd3735,
+  react-native: #282c34,
+  qgis: #1c2028,
+  figma: #2c2c2c,
+  eslint: #e2e2e2,
+  prettier: #1a2b34,
+  husky: #f6f6f7,
+  github-action: #242938,
+  obsidian: #252525,
 );
 
-/* Tech List */
-$--tech-list: sass, git, html, javascript, typescript, flutter, vuejs, webpack, vite, css, gitlab, electron, slack,
-  postcss;
+.warp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: map-get($map: $--space-size, $key: 'md');
+  grid-auto-flow: column;
+
+  & > :first-child {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
 
 .tech {
   &-container {
@@ -193,9 +221,9 @@ $--tech-list: sass, git, html, javascript, typescript, flutter, vuejs, webpack, 
       width: 80%;
     }
     /* Colors */
-    @each $tech in $--tech-list {
+    @each $tech, $color in $--tech-list {
       &__#{$tech} {
-        background-color: map-get($--colors, $tech);
+        background-color: $color;
       }
     }
   }
