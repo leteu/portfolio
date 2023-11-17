@@ -2,8 +2,6 @@ import { Dialog } from 'quasar'
 import { route } from 'quasar/wrappers'
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
-import { StateInterface } from '../store'
-
 import routes from './routes'
 
 import PlaneLoading from 'src/pages/PlaneLoading.vue'
@@ -17,7 +15,7 @@ import PlaneLoading from 'src/pages/PlaneLoading.vue'
  * with the Router instance.
  */
 
-export default route<StateInterface>(function (/* { store, ssrContext } */) {
+export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : process.env.VUE_ROUTER_MODE === 'history'
@@ -42,7 +40,7 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     setTimeout(() => {
       Plane.hide()
       next()
-    }, 5 * 1000)
+    }, 2 * 1000)
   })
   return Router
 })
